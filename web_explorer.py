@@ -17,11 +17,11 @@ def settings():
     # Vectorstore
     import faiss
     from langchain.vectorstores import FAISS 
-    from langchain.embeddings.openai import OpenAIEmbeddings
-    from langchain_google_genai import ChatGoogleGenerativeAI,GoogleGenerativeAIEmbeddings
+    # from langchain.embeddings.openai import OpenAIEmbeddings
+    from langchain_google_genai import ChatGoogleGenerativeAI, GoogleGenerativeAIEmbeddings
     from langchain.docstore import InMemoryDocstore  
-    embeddings_model = OpenAIEmbeddings()  
-    # embeddings_model = GoogleGenerativeAIEmbeddings('models/embedding-001')  
+    # embeddings_model = OpenAIEmbeddings()  
+    embeddings_model = GoogleGenerativeAIEmbeddings('models/embedding-001')  
     embedding_size = 1536  
     index = faiss.IndexFlatL2(embedding_size)  
     vectorstore_public = FAISS(embeddings_model.embed_query, index, InMemoryDocstore({}), {})
