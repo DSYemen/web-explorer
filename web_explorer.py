@@ -21,7 +21,7 @@ def settings():
     from langchain_google_genai import ChatGoogleGenerativeAI, GoogleGenerativeAIEmbeddings
     from langchain.docstore import InMemoryDocstore  
     # embeddings_model = OpenAIEmbeddings()  
-    embeddings_model = GoogleGenerativeAIEmbeddings(model="models/embedding-001") 
+    embeddings_model = GoogleGenerativeAIEmbeddings(model="models/embedding-001",task_type="retrieval_query") 
     embedding_size = 1536  
     index = faiss.IndexFlatL2(embedding_size)  
     vectorstore_public = FAISS(embeddings_model.embed_query, index, InMemoryDocstore({}), {})
