@@ -8,7 +8,7 @@ import os
 os.environ["GOOGLE_API_KEY"] = "AIzaSyAB7MIAfbS6oZzF78OHfB8kt7o0-KX2Vpc" # Get it at https://console.cloud.google.com/apis/api/customsearch.googleapis.com/credentials
 os.environ["GOOGLE_CSE_ID"] = "https://cse.google.com/cse.js?cx=01b39422d16714754" # Get it at https://programmablesearchengine.google.com/
 # os.environ["OPENAI_API_BASE"] = "https://api.openai.com/v1"
-# os.environ["OPENAI"] = "" # Get it at https://beta.openai.com/account/api-keys
+# os.environ["OPENAI_API_KEY"] = "" # Get it at https://beta.openai.com/account/api-keys
 
 st.set_page_config(page_title="Interweb Explorer", page_icon="🌐")
 
@@ -18,7 +18,7 @@ def settings():
     import faiss
     from langchain.vectorstores import FAISS 
     # from langchain.embeddings.openai import OpenAIEmbeddings
-    from langchain_google_genai import GoogleGenerativeAIEmbeddings
+    from langchain_google_genai import ChatGoogleGenerativeAI,GoogleGenerativeAIEmbeddings
     from langchain.docstore import InMemoryDocstore  
     # embeddings_model = OpenAIEmbeddings()  
     embeddings_model = GoogleGenerativeAIEmbeddings('models/embedding-001')  
@@ -30,7 +30,7 @@ def settings():
     # from langchain.chat_models import ChatOpenAI
     # llm = ChatOpenAI(model_name="gpt-3.5-turbo-16k", temperature=0, streaming=True)
 
-    from langchain_google_genai import ChatGoogleGenerativeAI
+    # from langchain_google_genai import ChatGoogleGenerativeAI
     llm = ChatGoogleGenerativeAI(model="gemini-pro")
 
 
