@@ -17,7 +17,7 @@ def settings():
     # Vectorstore
     import faiss
     from langchain.vectorstores import FAISS 
-    # from langchain.embeddings.openai import OpenAIEmbeddings
+    from langchain.embeddings.openai import OpenAIEmbeddings
     from langchain_google_genai import ChatGoogleGenerativeAI,GoogleGenerativeAIEmbeddings
     from langchain.docstore import InMemoryDocstore  
     embeddings_model = OpenAIEmbeddings()  
