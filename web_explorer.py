@@ -6,7 +6,7 @@ from langchain.retrievers.web_research import WebResearchRetriever
 import os
 
 os.environ["GOOGLE_API_KEY"] = "AIzaSyAB7MIAfbS6oZzF78OHfB8kt7o0-KX2Vpc" # Get it at https://console.cloud.google.com/apis/api/customsearch.googleapis.com/credentials
-os.environ["GOOGLE_CSE_ID"] = "01b39422d16714754" # Get it at https://programmablesearchengine.google.com/
+os.environ["GOOGLE_CSE_ID"] = "https://cse.google.com/cse.js?cx=a57ccd7b2fa0b4777" #"01b39422d16714754" # Get it at https://programmablesearchengine.google.com/
 # os.environ["OPENAI_API_BASE"] = "https://api.openai.com/v1"
 # os.environ["OPENAI_API_KEY"] = "" # Get it at https://beta.openai.com/account/api-keys
 
@@ -21,7 +21,7 @@ def settings():
     from langchain_google_genai import ChatGoogleGenerativeAI, GoogleGenerativeAIEmbeddings
     from langchain.docstore import InMemoryDocstore  
     # embeddings_model = OpenAIEmbeddings()  
-    embeddings_model = GoogleGenerativeAIEmbeddings(model="models/embedding-001",task_type="retrieval_query") 
+    embeddings_model = GoogleGenerativeAIEmbeddings(model="models/embedding-001", task_type="retrieval_query") 
     embedding_size = 1536  
     index = faiss.IndexFlatL2(embedding_size)  
     vectorstore_public = FAISS(embeddings_model.embed_query, index, InMemoryDocstore({}), {})
