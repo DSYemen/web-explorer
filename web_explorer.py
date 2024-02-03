@@ -25,7 +25,7 @@ def settings():
     # embedding_size = 1536  
     # index = faiss.IndexFlatL2(embedding_size)  
     # vectorstore_public = FAISS(embeddings_model.embed_query, index, InMemoryDocstore({}), {})
-    vectorstore_public = FAISS(embeddings_model.embed_query, InMemoryDocstore({}))
+    vectorstore_public = FAISS(embeddings_model.embed_query, {},InMemoryDocstore({}),{})
 
     # LLM
     # from langchain.chat_models import ChatOpenAI
