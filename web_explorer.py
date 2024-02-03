@@ -91,9 +91,9 @@ question = st.text_input("`Ask a question:`")
 if question:
 
     # Generate answer (w/ citations)
-    import logging
-    logging.basicConfig()
-    logging.getLogger("langchain.retrievers.web_research").setLevel(logging.INFO)    
+    # import logging
+    # logging.basicConfig()
+    # logging.getLogger("langchain.retrievers.web_research").setLevel(logging.INFO)    
     qa_chain = RetrievalQAWithSourcesChain.from_chain_type(llm, retriever=web_retriever)
 
     # Write answer and sources
