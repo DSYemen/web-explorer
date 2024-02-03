@@ -11,3 +11,5 @@ googleapis-common-protos
 langchain-google-genai
 tiktoken
 faiss-cpu
+langchain-community
+bs4
