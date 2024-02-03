@@ -16,10 +16,10 @@ def settings():
 
     # Vectorstore
     import faiss
-    from langchain.vectorstores import FAISS 
+    from langchain_community.vectorstores import FAISS 
     # from langchain.embeddings.openai import OpenAIEmbeddings
     from langchain_google_genai import ChatGoogleGenerativeAI, GoogleGenerativeAIEmbeddings
-    from langchain.docstore import InMemoryDocstore  
+    from langchain_community.docstore import InMemoryDocstore  
     # embeddings_model = OpenAIEmbeddings()  
     embeddings_model = GoogleGenerativeAIEmbeddings(model="models/embedding-001")#, task_type="retrieval_query") 
     embedding_size = 1536  
