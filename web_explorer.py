@@ -22,11 +22,13 @@ def settings():
     from langchain_google_genai import ChatGoogleGenerativeAI, GoogleGenerativeAIEmbeddings
     from langchain_community.docstore import InMemoryDocstore  
     # embeddings_model = OpenAIEmbeddings()  
-    embeddings_model = GoogleGenerativeAIEmbeddings(model="models/embedding-001")#, task_type="retrieval_query") 
+    embeddings_model = GoogleGenerativeAIEmbeddings(model="models/embedding-001", task_type="retrieval_query") 
     embedding_size = 1536  
     index = faiss.IndexFlatL2(embedding_size)  
-    vectorstore_public = FAISS(embeddings_model.embed_query, index, InMemoryDocstore({}), {})
+    vectorstore_public = FAISS(embeddings_model, index, InMemoryDocstore({}), {})
     # vectorstore_public = FAISS.from_documents(InMemoryDocstore({}),embeddings_model.embed_query)
+    # vectorstore_public = Chroma(embedding_function=OpenAIEmbeddings(), persist_directory="./chroma_db_oai")
+
     # vectorstore_public = Chroma("langchain_store", embeddings_model.embed_query)
 
     # LLM
