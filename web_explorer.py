@@ -3,10 +3,10 @@ from langchain.callbacks.base import BaseCallbackHandler
 from langchain.chains import RetrievalQAWithSourcesChain
 from langchain.retrievers.web_research import WebResearchRetriever
 
-# import os
+import os
 
-# os.environ["GOOGLE_API_KEY"] = "AIzaSyArkdTOXTwk4009wc_-ub5c6vfQ97O_5TI" # Get it at https://console.cloud.google.com/apis/api/customsearch.googleapis.com/credentials
-# os.environ["GOOGLE_CSE_ID"] = "a57ccd7b2fa0b4777" #"AIzaSyA1puf3hG62YxDhHX9EFgGkPzmCs1L5wc4"# #"https://cse.google.com/cse.js?cx=01b39422d16714754" # Get it at https://programmablesearchengine.google.com/
+os.environ["GOOGLE_API_KEY"] = "AIzaSyArkdTOXTwk4009wc_-ub5c6vfQ97O_5TI" # Get it at https://console.cloud.google.com/apis/api/customsearch.googleapis.com/credentials
+os.environ["GOOGLE_CSE_ID"] = "a57ccd7b2fa0b4777" #"AIzaSyA1puf3hG62YxDhHX9EFgGkPzmCs1L5wc4"# #"https://cse.google.com/cse.js?cx=01b39422d16714754" # Get it at https://programmablesearchengine.google.com/
 # # os.environ["OPENAI_API_BASE"] = "https://api.openai.com/v1"
 # os.environ["OPENAI_API_KEY"] = "" # Get it at https://beta.openai.com/account/api-keys
 
