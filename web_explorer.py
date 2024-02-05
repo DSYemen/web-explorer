@@ -25,7 +25,7 @@ def settings():
     embeddings_model = GoogleGenerativeAIEmbeddings(model="models/embedding-001", task_type="retrieval_query") 
     embedding_size = 1536  
     index = faiss.IndexFlatL2(embedding_size)  
-    vectorstore_public = FAISS(embeddings_model, index, InMemoryDocstore({}), {})
+    vectorstore_public = FAISS(embedding_function=embeddings_model,index=index, docstore=InMemoryDocstore({}),index_to_docstore_id={})
     # vectorstore_public = FAISS.from_documents(InMemoryDocstore({}),embeddings_model.embed_query)
     # vectorstore_public = Chroma(embedding_function=OpenAIEmbeddings(), persist_directory="./chroma_db_oai")
 
