@@ -25,8 +25,10 @@ def settings():
     embeddings_model = GoogleGenerativeAIEmbeddings(model="models/embedding-001")#, task_type="retrieval_query") 
     embedding_size = 1536  
     index = faiss.IndexFlatL2(embedding_size)  
-    vectorstore_public = FAISS(embeddings_model.embed_query, index, InMemoryDocstore({}), {})
+    # vectorstore_public = FAISS(embeddings_model.embed_query, index, InMemoryDocstore({}), {})
+    vectorstore_public = FAISS.from_documents(InMemoryDocstore({}),embeddings_model.embed_query)
     # vectorstore_public = Chroma("langchain_store", embeddings_model.embed_query)
+
     # LLM
     # from langchain.chat_models import ChatOpenAI
     # llm = ChatOpenAI(model_name="gpt-3.5-turbo-16k", temperature=0, streaming=True)
