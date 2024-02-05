@@ -26,7 +26,7 @@ def settings():
     # embedding_size = 1536  
     # index = faiss.IndexFlatL2(embedding_size)  
     # vectorstore_public = FAISS(embeddings_model.embed_query, index, InMemoryDocstore({}), {})
-    vectorstore_public = Chroma(embeddings_model.embed_query,InMemoryDocstore({}))
+    vectorstore_public = Chroma(embedding_function=embeddings_model.embed_query, persist_directory="./chroma_db_oai")
 
     # LLM
     # from langchain.chat_models import ChatOpenAI
