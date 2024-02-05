@@ -15,17 +15,18 @@ st.set_page_config(page_title="Interweb Explorer", page_icon="🌐")
 def settings():
 
     # Vectorstore
-    import faiss
-    from langchain_community.vectorstores import FAISS 
+    # import faiss
+    # from langchain_community.vectorstores import FAISS 
+    from langchain_community.vectorstores import Chroma 
     # from langchain.embeddings.openai import OpenAIEmbeddings
     from langchain_google_genai import ChatGoogleGenerativeAI, GoogleGenerativeAIEmbeddings
     from langchain_community.docstore import InMemoryDocstore  
     # embeddings_model = OpenAIEmbeddings()  
     embeddings_model = GoogleGenerativeAIEmbeddings(model="models/embedding-001")#, task_type="retrieval_query") 
-    embedding_size = 1536  
-    index = faiss.IndexFlatL2(embedding_size)  
+    # embedding_size = 1536  
+    # index = faiss.IndexFlatL2(embedding_size)  
     # vectorstore_public = FAISS(embeddings_model.embed_query, index, InMemoryDocstore({}), {})
-    vectorstore_public = FAISS(embeddings_model.embed_query, index, InMemoryDocstore({}), {})
+    vectorstore_public = Chroma(embeddings_model.embed_query,InMemoryDocstore({}))
 
     # LLM
     # from langchain.chat_models import ChatOpenAI
@@ -91,9 +92,9 @@ question = st.text_input("`Ask a question:`")
 if question:
 
     # Generate answer (w/ citations)
-    # import logging
-    # logging.basicConfig()
-    # logging.getLogger("langchain.retrievers.web_research").setLevel(logging.INFO)    
+    import logging
+    logging.basicConfig()
+    logging.getLogger("langchain.retrievers.web_research").setLevel(logging.INFO)    
     qa_chain = RetrievalQAWithSourcesChain.from_chain_type(llm, retriever=web_retriever)
 
     # Write answer and sources
