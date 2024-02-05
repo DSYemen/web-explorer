@@ -13,4 +13,3 @@ tiktoken
 faiss-cpu
 langchain-community
 bs4
-sqlite3
