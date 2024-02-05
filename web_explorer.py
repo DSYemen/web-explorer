@@ -15,9 +15,9 @@ st.set_page_config(page_title="Interweb Explorer", page_icon="🌐")
 def settings():
 
     # Vectorstore
-    # import faiss
-    # from langchain_community.vectorstores import FAISS 
-    from langchain_community.vectorstores import Chroma 
+    import faiss
+    from langchain_community.vectorstores import FAISS 
+    # from langchain_community.vectorstores import Chroma 
     # from langchain.embeddings.openai import OpenAIEmbeddings
     from langchain_google_genai import ChatGoogleGenerativeAI, GoogleGenerativeAIEmbeddings
     from langchain_community.docstore import InMemoryDocstore  
