@@ -26,8 +26,7 @@ def settings():
     # embedding_size = 1536  
     # index = faiss.IndexFlatL2(embedding_size)  
     # vectorstore_public = FAISS(embeddings_model.embed_query, index, InMemoryDocstore({}), {})
-    vectorstore_public = Chroma(embedding_function=embeddings_model.embed_query, persist_directory="./chroma_db_oai")
-
+    vectorstore_public = Chroma(embeddings_model.embed_query,InMemoryDocstore({}))# persist_directory="./chroma_db_oai") embedding_function=
     # LLM
     # from langchain.chat_models import ChatOpenAI
     # llm = ChatOpenAI(model_name="gpt-3.5-turbo-16k", temperature=0, streaming=True)
